@@ -48,7 +48,6 @@ const SignIn = ({setUser, setSignedIn}) => {
         }
         const result = await response.json()//если ответ ок, преобразуем ответ из JSON в объект
         getUserData(result.data.accessToken)//и передаём accessToken в функцию для полученяи информации о пользователе
-        console.log(data);
     }
 
     return <form onSubmit={logIn} style={{width:'fit-content', margin:'40px auto', padding:'10px',display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', boxShadow:'0 3px 10px grey'}}> {/* стилей немного, поэтому инлайново(сори за длинную строку, хотя бывает и хуже:) */}
