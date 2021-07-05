@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react'
+import {Route, Switch, HashRouter} from 'react-router-dom'
+import {} from 'react-dom'
+import SignIn from './componets/SignIn/SignIn'
+import LoggedIn from './componets/LoggedIn/LoggedIn';
 
 function App() {
+  const [user, setUser] = useState({})
+  const [signedIn, setSignedIn] = useState(false)
   return (
+    <HashRouter basename={process.env.PUBLIC_URL}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route exact path='/'>
+          <SignIn setUser={setUser} setSignedIn={setSignedIn}/>
+        </Route>
+        <Route path='/loggedin'>
+          <LoggedIn user={user} signedIn={signedIn} setSignedIn={setSignedIn}/>
+        </Route>
+      </Switch>
     </div>
+    </HashRouter>
+    
   );
 }
 
