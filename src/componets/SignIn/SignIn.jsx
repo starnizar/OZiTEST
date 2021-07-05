@@ -20,8 +20,8 @@ const SignIn = ({setUser, setSignedIn}) => {
         setSignedIn(true)   //записываем в state true чтобы подтвердить вход
         setUser(result)     //записываем в state данные пользователя
         location.push('/loggedin') //переход на страницу пользователя
-    }
-
+    }   // можно было конечно использовать localStorage или cookie чтобы после перезагрузки не выходило из профиля
+        // но этого вроде и не требовалось, но если надо, могу
     const logIn = async (event) => {
         event.preventDefault()//предотвращение перезагрузки страницы после отправки формы
         if(!mailRegexp.test(emailRef.current.value) || emailRef.current.value.trim() === ''){   // проверка поля на пустое значение и правильность заполнения
