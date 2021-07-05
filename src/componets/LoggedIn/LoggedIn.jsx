@@ -3,9 +3,6 @@ import { useHistory } from 'react-router'
 
 const LoggedIn = ({user, signedIn, setSignedIn}) => {
     const location = useHistory()
-
-    console.log(signedIn);
-    console.log(user);
     
     if(signedIn === false) {    //проверка на прохождение входа
         location.push('/')      //перенаправление на страницу входа
